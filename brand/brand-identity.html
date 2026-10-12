@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Babalas Rescue+ Brand Identity</title>
+<link rel="stylesheet" href="brand-tokens.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-family:var(--font-body);color:var(--bb-night);background:var(--bb-white);line-height:var(--lh-body);font-size:16px}
+  img,svg{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  section{padding:88px 0;position:relative;overflow:hidden}
+  .eyebrow{font-family:var(--font-display);font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .eyebrow::before{content:"+";font-weight:800;font-size:1.3rem;line-height:1}
+  h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:var(--ls-display);line-height:var(--lh-tight)}
+  h2{font-size:clamp(2.4rem,5vw,3.9rem);margin-bottom:22px}
+  h3{font-size:1.45rem;margin-bottom:10px;line-height:1.15}
+  p{max-width:62ch}
+  p+p{margin-top:14px}
+  .lead{font-size:1.2rem;line-height:1.5;max-width:56ch}
+  .small{font-size:.85rem;opacity:.85}
+  .on-blue{background:var(--bb-blue)} .on-yellow{background:var(--bb-yellow)} .on-sky{background:var(--bb-sky-tint)} .on-night{background:var(--bb-night);color:#fff}
+  .grid{display:grid;gap:24px} .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:#fff;border-radius:var(--radius-md);padding:28px;box-shadow:var(--shadow-card)}
+  .tag{display:inline-block;font-family:var(--font-display);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:99px;background:var(--bb-night);color:#fff}
+  .tag.y{background:var(--bb-yellow);color:var(--bb-night)} .tag.p{background:var(--bb-pink);color:#fff} .tag.b{background:var(--bb-blue);color:var(--bb-night)}
+
+  /* cover */
+  .cover{background:var(--bb-blue);min-height:100vh;display:flex;align-items:flex-end;padding:0}
+  .cover .icon{position:absolute;left:-5%;top:0;height:100%;width:auto;pointer-events:none}
+  .cover .wrap{position:relative;z-index:2;width:100%;padding-bottom:72px;display:flex;justify-content:flex-end}
+  .cover .txt{width:min(480px,100%)}
+  .cover .logo{width:100%;margin-bottom:34px}
+  .cover h1{font-size:clamp(2.6rem,5.6vw,4.6rem);color:var(--bb-white)}
+  .cover .meta{margin-top:26px;font-weight:600;font-size:.9rem;letter-spacing:.04em}
+
+  /* facts */
+  .stat{font-family:var(--font-display);font-weight:800;font-size:3rem;line-height:1;color:var(--bb-blue)}
+  .quote{font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1.08;letter-spacing:var(--ls-display)}
+
+  /* voice */
+  .pillar .num{font-family:var(--font-display);font-weight:800;font-size:4rem;line-height:.8;color:var(--bb-yellow);-webkit-text-stroke:2px var(--bb-night);margin-bottom:14px}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-card)}
+  .vs div{padding:22px 26px;font-size:.98rem}
+  .vs .head{font-family:var(--font-display);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+  .vs .yes{background:#fff} .vs .no{background:var(--bb-night);color:#fff}
+  .vs .yes.head{background:var(--bb-yellow)} .vs .no.head{background:var(--bb-pink)}
+
+  /* logo */
+  .logo-stage{border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;padding:44px}
+  .logo-stage img{width:100%}
+  .cs-box{position:relative;background:var(--bb-blue);border-radius:var(--radius-md);padding:22%;}
+  .cs-box .inner{position:relative;outline:2px dashed rgba(11,42,64,.6);outline-offset:0}
+  .cs-box .inner img{width:100%}
+  .cs-box .x{position:absolute;width:var(--cs);height:var(--cs);background:rgba(253,234,18,.55);border:1.5px solid var(--bb-night);display:flex;align-items:center;justify-content:center;font:800 .85rem var(--font-display);color:var(--bb-night)}
+  .misuse{position:relative}
+  .misuse .frame{aspect-ratio:16/10;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--bb-blue);position:relative}
+  .misuse .frame img{width:62%}
+  .misuse .x::after{content:"✕";position:absolute;right:12px;top:10px;width:30px;height:30px;border-radius:50%;background:var(--bb-pink);color:#fff;font:700 15px/30px sans-serif;text-align:center}
+  .misuse figcaption{font-weight:600;font-size:.88rem;margin-top:10px}
+
+  /* colour */
+  .swatches{display:grid;grid-template-columns:1.5fr 1.5fr 1fr 1fr;gap:0;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card)}
+  .sw{min-height:380px;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+  .sw h3{font-size:1.7rem;margin:0}
+  .sw dl{font-size:.82rem;font-weight:600;display:grid;grid-template-columns:auto 1fr;gap:3px 12px}
+  .sw dt{opacity:.7;font-weight:600}
+  .ratio{height:46px;display:flex;border-radius:99px;overflow:hidden;margin:24px 0 8px;box-shadow:var(--shadow-card)}
+  .ratio span{display:flex;align-items:center;justify-content:center;font:800 .8rem var(--font-display)}
+  .pair{border-radius:var(--radius-md);padding:22px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+  .pair .big{font-family:var(--font-display);font-weight:800;font-size:2.3rem;line-height:1}
+  .pair .meta{font-size:.78rem;font-weight:700;display:flex;justify-content:space-between;gap:8px;align-items:center}
+  .badge{padding:3px 9px;border-radius:99px;font-size:.7rem;font-weight:800;letter-spacing:.05em;background:rgba(255,255,255,.9);color:var(--bb-night)}
+  .badge.ok{background:#12a150;color:#fff} .badge.large{background:var(--bb-yellow);color:var(--bb-night)} .badge.no{background:var(--bb-pink);color:#fff}
+
+  /* type */
+  .spec{border-radius:var(--radius-lg);padding:40px}
+  .spec .glyph{font-family:var(--font-display);font-weight:800;font-size:9rem;line-height:.85;letter-spacing:var(--ls-display)}
+  .spec.m .glyph{font-family:var(--font-body);font-weight:700;font-size:8rem;letter-spacing:-.04em}
+  .ladder>div{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1.5px solid rgba(11,42,64,.15)}
+  .ladder .lab{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+  .fnote{border-left:6px solid var(--bb-pink);padding:14px 18px;background:#fff;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.92rem;box-shadow:var(--shadow-card)}
+
+  /* graphic language */
+  .gl{border-radius:var(--radius-lg);overflow:hidden;position:relative;min-height:340px;padding:30px;display:flex;flex-direction:column;justify-content:flex-end}
+  .gl .ico{position:absolute;pointer-events:none}
+  .gl h3{position:relative;z-index:2}
+  .gl p{position:relative;z-index:2;font-size:.92rem;font-weight:500}
+  .plus-badge{display:inline-flex;align-items:center;justify-content:center;width:84px;height:84px;border-radius:50%;background:var(--bb-yellow);font:800 3.4rem/1 var(--font-display);color:var(--bb-blue);padding-bottom:6px}
+
+  /* products */
+  .prod{border-radius:var(--radius-lg);padding:30px 30px 26px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+  .prod .pic{height:360px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:18px}
+  .prod .pic img{height:100%;width:auto;filter:drop-shadow(0 26px 24px rgba(11,42,64,.35))}
+  .prod ul{list-style:none;font-size:.88rem;font-weight:500;margin-top:10px}
+  .prod li{padding:5px 0;border-top:1.5px solid rgba(11,42,64,.18)}
+
+  /* applications */
+  .apps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;align-items:start}
+  .frame{position:relative;overflow:hidden;border-radius:26px;box-shadow:var(--shadow-card)}
+  .frame .lab{position:absolute;left:14px;top:14px;z-index:5}
+  .story{aspect-ratio:9/16;background:var(--bb-blue)}
+  .post{aspect-ratio:4/5;background:var(--bb-yellow)}
+  .sq{aspect-ratio:1/1;background:var(--bb-blue)}
+  .frame .ico{position:absolute}
+  .frame .hd{font-family:var(--font-display);font-weight:800;line-height:.95;letter-spacing:var(--ls-display);position:absolute;z-index:3}
+
+  table{border-collapse:collapse;width:100%;font-size:.9rem}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1.5px solid rgba(11,42,64,.15);vertical-align:top}
+  th{font-family:var(--font-display);font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:.88em;background:rgba(11,42,64,.08);padding:2px 6px;border-radius:5px}
+
+  footer{background:var(--bb-night);color:#fff;padding:56px 0}
+  footer img{width:200px}
+
+  @media (max-width:900px){.g2,.g3,.g4,.apps,.swatches{grid-template-columns:1fr}.cover .wrap{justify-content:flex-start}.cover .icon{opacity:.35}.sw{min-height:200px}.vs{grid-template-columns:1fr}.ladder>div{grid-template-columns:1fr}}
+  @media print{section{break-inside:avoid-page;page-break-inside:avoid}.cover{min-height:auto;height:900px}}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <img class="icon" src="logo/babalas-icon-yellow.svg" alt="">
+  <div class="wrap"><div class="txt">
+    <img class="logo" src="logo/babalas-wordmark-yellow.svg" alt="babalas rescue+ — bounce back from your hangover">
+    <h1>Brand<br>identity</h1>
+    <p class="meta">Version 1.0 · Working design backbone · Prepared by Hustlery</p>
+  </div></div>
+</section>
+
+<!-- ============ 01 ESSENCE ============ -->
+<section class="on-yellow">
+  <div class="wrap">
+    <div class="eyebrow">01 · Brand essence</div>
+    <p class="quote" style="max-width:20ch;margin-bottom:34px">We won’t leave you hangin’.</p>
+    <div class="grid g2" style="align-items:start">
+      <div>
+        <p class="lead">Babalas Rescue+ is a hangover-recovery brand made in South Africa. “Babalas” is local slang for the morning after, and the logo says the rest: a figure dangling from a cliff edge, one hand still holding on, and a product that helps them climb back up.</p>
+        <p style="margin-top:18px">The brand sits between functional recovery (electrolytes, B-vitamins, antioxidants) and a party-culture sense of humour. It is the friend who shows up with water and no judgement. Its promise is a single line, used on every pack:</p>
+        <p class="quote" style="font-size:1.6rem;margin-top:14px">bounce back from your hangover</p>
+      </div>
+      <div class="card">
+        <h3>The idea in one frame</h3>
+        <p>A <b>cliff</b> and a <b>climber</b>. The cliff is last night. The climber is you, mid-recovery, hanging on and about to bounce back. The <b>+</b> in “rescue+” is the help arriving.</p>
+        <p style="margin-top:14px"><span class="tag">Hangover recovery</span> <span class="tag b">Rehydrate &amp; restore</span> <span class="tag y">Boost energy</span> <span class="tag">Boost immunity</span> <span class="tag p">Relieve “hangxiety”</span></p>
+        <p class="small" style="margin-top:14px">Benefit claims are taken from the client trade presenters. All creative must carry the responsible-drinking message (see Voice).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 AUDIENCE ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">02 · Who it’s for</div>
+    <h2>Social, South African, a bit sorry for themselves.</h2>
+    <div class="grid g3">
+      <div class="card" style="background:var(--bb-sky-tint);box-shadow:none"><div class="stat">18+</div><p style="margin-top:10px">Adults who drink socially. Packs state not recommended for under 18s, pregnant or lactating women.</p></div>
+      <div class="card" style="background:var(--bb-sun-tint);box-shadow:none"><div class="stat" style="color:var(--bb-night)">9:16</div><p style="margin-top:10px">Reached through short vertical video: Instagram Reels and TikTok, with paid support on Meta, Google and TikTok.</p></div>
+      <div class="card" style="background:var(--bb-sky-tint);box-shadow:none"><div class="stat">→</div><p style="margin-top:10px"><b>Focus moving towards Black South African consumers</b> (client marketing brief, Jan 2026). Casting, language and locations should reflect this deliberately, not as an afterthought.</p></div>
+    </div>
+    <p class="small" style="margin-top:22px">Open question for the client: a fuller persona (age band, cities, occasions) would sharpen creative. See section 12.</p>
+  </div>
+</section>
+
+<!-- ============ 03 VOICE ============ -->
+<section class="on-sky">
+  <div class="wrap">
+    <div class="eyebrow">03 · Voice &amp; tone</div>
+    <h2>Funny, but the brand is always the solution, never the punchline.</h2>
+    <p class="lead" style="margin-bottom:36px">These three rules come straight from the client’s influencer content brief and apply to all copy, captions and scripts.</p>
+    <div class="grid g3">
+      <div class="card pillar"><div class="num">1</div><h3>Self-aware &amp; honest</h3><p>We know what last night was. No shaming, no miracle claims. Say what the product does, plainly.</p></div>
+      <div class="card pillar"><div class="num">2</div><h3>Distinctly South African</h3><p>Local slang, local places, local humour. Written how people actually talk, not translated from an overseas template.</p></div>
+      <div class="card pillar"><div class="num">3</div><h3>Funny, never at our own expense</h3><p>The joke is the hangover. The brand arrives as the fix, so it is never the butt of the gag.</p></div>
+    </div>
+    <h3 style="margin:48px 0 18px">In practice</h3>
+    <div class="vs">
+      <div class="head yes">We say</div><div class="head no">We don’t say</div>
+      <div class="yes">“The Ultimate Bounce-Back Has Arrived.”</div><div class="no">“Cure your hangover instantly.” (no medical claims)</div>
+      <div class="yes">“Replenish what last night took out.”</div><div class="no">“Drink more, party harder.” (never encourage excess)</div>
+      <div class="yes">“Wake up refreshed, hydrated, ready. Zero regrets.”</div><div class="no">Stiff scripted ad-reads or corporate wellness-speak</div>
+      <div class="yes">“We’ve got you.” / “We won’t leave you hangin’.”</div><div class="no">Jokes where the product fails or looks silly</div>
+    </div>
+    <div class="card" style="margin-top:28px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+      <span class="tag p">Always include</span>
+      <p style="max-width:none"><b>WE SUPPORT RESPONSIBLE DRINKING.</b> Enjoy as part of a balanced and healthy lifestyle. Not intended to diagnose, treat, cure or prevent any disease. Not recommended for under-18s, pregnant or lactating women. Wording is from the client’s trade presenters; check with the client before using it on ad creative.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 LOGO ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">04 · Logo</div>
+    <h2>One mark, two parts.</h2>
+    <p class="lead" style="margin-bottom:32px">The lockup combines the <b>climber icon</b> with the <b>babalas rescue+</b> wordmark and tagline. The wordmark is drawn artwork: never retype it in a font. Always use the supplied files in <code>brand/logo/</code>.</p>
+
+    <div class="grid g2" style="margin-bottom:24px">
+      <div class="logo-stage on-blue"><img src="logo/babalas-logo-yellow-on-blue.svg" alt="Primary logo: yellow on blue"></div>
+      <div class="logo-stage on-yellow"><img src="logo/babalas-logo-blue-on-yellow.svg" alt="Secondary logo: blue on yellow"></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:56px">
+      <div class="logo-stage on-night" style="padding:30px"><img src="logo/babalas-logo-yellow.svg" alt=""></div>
+      <div class="logo-stage on-night" style="padding:30px"><img src="logo/babalas-logo-white.svg" alt=""></div>
+      <div class="logo-stage on-sky" style="padding:30px"><img src="logo/babalas-logo-blue.svg" alt=""></div>
+      <div class="logo-stage" style="padding:30px;background:#fff;box-shadow:var(--shadow-card)"><img src="logo/babalas-logo-black.svg" alt="" style="width:100%"></div>
+    </div>
+    <p class="small" style="margin:-40px 0 56px">Primary: yellow on Babalas Blue (as seen on the cans and sachets). Secondary: blue on Rescue Yellow. Single-colour yellow / white / blue / dark versions are for photography overlays and one-colour print. Pink is not used for the logo.</p>
+
+    <div class="grid g3" style="align-items:start">
+      <div>
+        <h3>Clear space</h3>
+        <div class="cs-box" style="--cs:10%">
+          <div class="inner"><img src="logo/babalas-logo-yellow.svg" alt=""></div>
+        </div>
+        <p class="small" style="margin-top:12px">Keep at least the width of the “+” clear on every side (shown by the dashed padding). No type, edges or imagery inside it. The icon may bleed off the canvas on its own (see Graphic language) but the full lockup never does.</p>
+      </div>
+      <div>
+        <h3>Minimum size</h3>
+        <div class="card" style="background:var(--bb-blue);display:flex;flex-direction:column;gap:26px;align-items:flex-start">
+          <img src="logo/babalas-logo-yellow.svg" style="width:160px" alt="">
+          <img src="logo/babalas-logo-yellow.svg" style="width:110px" alt="">
+          <img src="logo/babalas-wordmark-yellow.svg" style="width:90px" alt="">
+        </div>
+        <p class="small" style="margin-top:12px">Full lockup: <b>110 px / 30 mm</b> wide minimum (the tagline is legible down to there). Below that, use the icon alone. Wordmark-only: 90 px / 25 mm.</p>
+      </div>
+      <div>
+        <h3>Which version?</h3>
+        <table>
+          <tr><th>Need</th><th>Use</th></tr>
+          <tr><td>Hero / default</td><td>Yellow on blue</td></tr>
+          <tr><td>Light or yellow layouts</td><td>Blue on yellow</td></tr>
+          <tr><td>Over photography</td><td>Single-colour yellow or white</td></tr>
+          <tr><td>Avatar, favicon, stickers</td><td>Icon only</td></tr>
+          <tr><td>Tight horizontal spaces</td><td>Wordmark only</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <h3 style="margin:56px 0 18px">Misuse</h3>
+    <div class="grid g4 misuse">
+      <figure><div class="frame x" style="background:var(--bb-pink)"><img src="logo/babalas-logo-yellow.svg" alt=""></div><figcaption>Don’t put it on pink (1.5 : 1 contrast).</figcaption></figure>
+      <figure><div class="frame x" style="background:var(--bb-yellow)"><img src="logo/babalas-logo-yellow.svg" alt=""></div><figcaption>Don’t put yellow on yellow, or any low-contrast pairing.</figcaption></figure>
+      <figure><div class="frame x"><img src="logo/babalas-logo-yellow.svg" style="transform:scaleX(1.5)" alt=""></div><figcaption>Don’t stretch, squash or rotate it.</figcaption></figure>
+      <figure><div class="frame x"><img src="logo/babalas-logo-yellow.svg" style="filter:drop-shadow(8px 8px 0 #F6009D)" alt=""></div><figcaption>Don’t add shadows, outlines or effects.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 COLOUR ============ -->
+<section class="on-sky">
+  <div class="wrap">
+    <div class="eyebrow">05 · Colour</div>
+    <h2>Blue and yellow lead. Pink only shouts.</h2>
+    <p class="lead" style="margin-bottom:36px">The cans and sachets are blue and yellow, split along the cliff edge. Pink appears sparingly on the can (“ENERGY”) and as a variant callout. Everything else is white or a dark text colour.</p>
+
+    <div class="swatches">
+      <div class="sw on-blue"><div><span class="tag">Primary</span><h3 style="margin-top:12px">Babalas Blue</h3></div>
+        <dl><dt>HEX</dt><dd>#2CACEF</dd><dt>RGB</dt><dd>44 · 172 · 239</dd><dt>Token</dt><dd>--bb-blue</dd></dl></div>
+      <div class="sw on-yellow"><div><span class="tag">Primary</span><h3 style="margin-top:12px">Rescue Yellow</h3></div>
+        <dl><dt>HEX</dt><dd>#FDEA12</dd><dt>RGB</dt><dd>253 · 234 · 18</dd><dt>Token</dt><dd>--bb-yellow</dd></dl></div>
+      <div class="sw" style="background:var(--bb-pink);color:#fff"><div><span class="tag" style="background:#fff;color:var(--bb-pink)">Accent</span><h3 style="margin-top:12px">Hangover Pink</h3></div>
+        <dl><dt>HEX</dt><dd>#F6009D</dd><dt>RGB</dt><dd>246 · 0 · 157</dd><dt>Token</dt><dd>--bb-pink</dd></dl></div>
+      <div class="sw" style="background:var(--bb-night);color:#fff"><div><span class="tag y">Derived</span><h3 style="margin-top:12px">Night</h3></div>
+        <dl><dt>HEX</dt><dd>#0B2A40</dd><dt>RGB</dt><dd>11 · 42 · 64</dd><dt>Token</dt><dd>--bb-night</dd></dl></div>
+    </div>
+
+    <h3 style="margin:44px 0 6px">Proportion</h3>
+    <div class="ratio">
+      <span class="on-blue" style="width:45%">Blue 45%</span><span class="on-yellow" style="width:35%">Yellow 35%</span><span style="width:15%;background:#fff">White 15%</span><span style="width:5%;background:var(--bb-pink);color:#fff">5</span>
+    </div>
+    <p class="small">Guideline for a typical layout. Blue and yellow should always feel like a split, not a mix.</p>
+
+    <h3 style="margin:44px 0 18px">Pairings and legibility</h3>
+    <div class="grid g4">
+      <div class="pair on-blue"><div class="big" style="color:var(--bb-yellow)">Bounce back</div><div class="meta"><span>Yellow on Blue · 2.05:1</span><span class="badge large">DISPLAY ONLY</span></div></div>
+      <div class="pair on-blue"><div class="big" style="color:var(--bb-night)">Bounce back</div><div class="meta"><span>Night on Blue · 5.8:1</span><span class="badge ok">AA</span></div></div>
+      <div class="pair on-yellow"><div class="big" style="color:var(--bb-blue)">Bounce back</div><div class="meta"><span>Blue on Yellow · 2.05:1</span><span class="badge large">DISPLAY ONLY</span></div></div>
+      <div class="pair on-yellow"><div class="big" style="color:var(--bb-night)">Bounce back</div><div class="meta"><span>Night on Yellow · 11.9:1</span><span class="badge ok">AAA</span></div></div>
+      <div class="pair" style="background:#fff;box-shadow:var(--shadow-card)"><div class="big" style="color:var(--bb-blue)">Bounce back</div><div class="meta"><span>Blue on White · 2.5:1</span><span class="badge large">DISPLAY ONLY</span></div></div>
+      <div class="pair" style="background:#fff;box-shadow:var(--shadow-card)"><div class="big" style="color:var(--bb-deep-blue)">Bounce back</div><div class="meta"><span>Deep Blue on White · 6.9:1</span><span class="badge ok">AA</span></div></div>
+      <div class="pair" style="background:#fff;box-shadow:var(--shadow-card)"><div class="big" style="color:var(--bb-pink)">Bounce back</div><div class="meta"><span>Pink on White · 3.9:1</span><span class="badge large">LARGE TEXT</span></div></div>
+      <div class="pair on-blue"><div class="big" style="color:var(--bb-pink)">Bounce back</div><div class="meta"><span>Pink on Blue · 1.5:1</span><span class="badge no">NEVER</span></div></div>
+    </div>
+    <div class="fnote" style="margin-top:28px"><b>Why “Night” exists.</b> The signature yellow-on-blue pairing is striking but only 2.05 : 1, fine for logos and headline-size display type, not for body copy, captions or small labels. Any small text on brand colours uses Night. Night and Deep Blue are <b>derived</b> additions (not in the client’s files) and should be confirmed with the client.</div>
+    <div class="fnote" style="margin-top:14px"><b>Sources differ slightly.</b> The influencer brief gives blue <code>#2CACEF</code> / yellow <code>#FBEA13</code>; the client colour sheet gives <code>#00ACEF</code> / <code>#FDEE11</code> / <code>#F6009D</code>; the logo PDF opens as <code>#459FDD</code> / <code>#F5F014</code> (colour-conversion artefact). We standardise on the brief’s blue and its yellow, nudged to <code>#FDEA12</code> as measured on the cover artwork. Print values (Pantone / CMYK) are not in the files and need confirming with the printer.</div>
+  </div>
+</section>
+
+<!-- ============ 06 TYPE ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">06 · Typography</div>
+    <h2>Futura shouts. Montserrat explains.</h2>
+    <div class="grid g2" style="margin:36px 0">
+      <div class="spec on-blue"><span class="tag" style="margin-bottom:22px">Headlines · Futura Heavy</span><div class="glyph" style="color:var(--bb-yellow)">Aa</div>
+        <p style="margin-top:22px;font-family:var(--font-display);font-weight:800;font-size:1.5rem;line-height:1.1">Wake up. Rehydrate. Bounce back.</p>
+        <p class="small" style="margin-top:12px">Heavy weight, tight tracking, sentence case. Digital stand-in: <b>Jost 800</b> (open licence, bundled in <code>brand/fonts</code>).</p></div>
+      <div class="spec m on-yellow"><span class="tag" style="margin-bottom:22px">Body · Montserrat</span><div class="glyph">Aa</div>
+        <p style="margin-top:22px;font-size:1.05rem;font-weight:400;line-height:1.5">Replenish what last night took out. 300 ml, lightly carbonated, 100 mg caffeine.</p>
+        <p class="small" style="margin-top:12px">Regular 400 for body, Bold 700 for emphasis, Light 300 for large pull-quotes. Free on Google Fonts.</p></div>
+    </div>
+
+    <div class="ladder">
+      <div><span class="lab">Display / 96</span><span style="font-family:var(--font-display);font-weight:800;font-size:5.4rem;line-height:.95;letter-spacing:-.025em">Rescue me</span></div>
+      <div><span class="lab">H1 / 56</span><span style="font-family:var(--font-display);font-weight:800;font-size:3.5rem;line-height:1;letter-spacing:-.02em">The morning-after fix</span></div>
+      <div><span class="lab">H2 / 32</span><span style="font-family:var(--font-display);font-weight:800;font-size:2rem;line-height:1.1;letter-spacing:-.015em">Electrolytes, B-vitamins, antioxidants</span></div>
+      <div><span class="lab">Tagline</span><span class="bb-tagline" style="font-size:1.8rem"><b>bounce back</b> from your <b>hangover</b></span></div>
+      <div><span class="lab">Body / 16</span><span style="font-size:1rem;line-height:1.55;max-width:60ch;display:block">Stop your hangover in its tracks. Dissolve one sachet into 200–300 ml of cold water before a night out and before bed, with another the morning after.</span></div>
+      <div><span class="lab">Caption / 12</span><span style="font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase">Caffeine free · 13,4 g · 1 serving</span></div>
+    </div>
+
+    <div class="fnote" style="margin-top:32px"><b>Font note.</b> Three different font lists exist in the client’s influencer-brief files: <b>Futura + Montserrat</b> (the branded version on the Products folder, dated Oct 2025), <b>Century Gothic</b> (an earlier version) and <b>Poppins</b> (a re-used Vitality I.V. template with a different orange palette). We take the Futura + Montserrat brief as authoritative: it is the only one on the Babalas cover artwork. Century Gothic is a safe system fallback. Poppins and the orange palette should <b>not</b> be used.</div>
+    <p class="small" style="margin-top:14px">The tagline treatment alternates weights: <b>bounce back</b> (bold) · from your (regular) · <b>hangover</b> (bold), exactly as in the logo lockup.</p>
+  </div>
+</section>
+
+<!-- ============ 07 GRAPHIC LANGUAGE ============ -->
+<section class="on-sky">
+  <div class="wrap">
+    <div class="eyebrow">07 · Graphic language</div>
+    <h2>Four moves that make it feel like Babalas.</h2>
+    <div class="grid g2" style="margin-top:34px">
+      <div class="gl on-blue">
+        <img class="ico" src="logo/babalas-icon-yellow.svg" style="height:128%;left:-9%;top:-6%" alt="">
+        <h3 style="color:#fff;margin-left:52%">1 · Hang the climber off the edge</h3>
+        <p style="margin-left:52%;color:var(--bb-night)">Crop the icon huge and let it bleed off the canvas, as on the influencer brief cover. The cliff becomes the layout edge and the climber is always mid-frame.</p>
+      </div>
+      <div class="gl" style="background:linear-gradient(115deg,var(--bb-blue) 0 38%,var(--bb-yellow) 38% 100%);justify-content:flex-end">
+        <h3 style="margin-left:30%">2 · Split along the cliff</h3>
+        <p style="margin-left:30%">Blue and yellow meet on a jagged diagonal, never a soft gradient. Flip which colour is “rock” and which is “sky” to keep layouts fresh.</p>
+              </div>
+      <div class="gl on-blue" style="justify-content:space-between">
+        <div class="plus-badge">+</div>
+        <div><h3 style="color:#fff">3 · The “+” is the rescue</h3>
+        <p>Pull the plus from “rescue+” out as a badge, bullet or sticker. It marks the helpful bit: benefits, offers, “new”.</p></div>
+      </div>
+      <div class="gl on-yellow" style="background:#fff;box-shadow:var(--shadow-card);justify-content:space-between">
+        <div class="bb-tagline" style="font-size:2.2rem;line-height:1.05;color:var(--bb-blue)"><b>bounce back</b><br>from your<br><b>hangover</b></div>
+        <div><h3>4 · Tagline as a stamp</h3><p>Use the bold / regular tagline as a repeatable lockup under products, at the end of videos and on stickers.</p></div>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:24px">
+      <div class="card"><h3>Shape</h3><p>Round corners (20–32 px), pill buttons and tags. Sharp points are reserved for the cliff edge.</p></div>
+      <div class="card"><h3>Space</h3><p>Generous. Big headline, one product, one tagline. Let the colour block do the work.</p></div>
+      <div class="card"><h3>Don’t</h3><p>No gradients between brand colours, no stock-wellness icons, no neon-on-neon, no extra colours (especially the orange ramp from the Poppins template).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 IMAGERY ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">08 · Imagery &amp; video</div>
+    <h2>Real mornings, not stock smiles.</h2>
+    <div class="grid g2" style="align-items:start">
+      <div>
+        <p class="lead">Show the morning after: the groan, the water, the first sip, the comeback. Bright natural light, real South African settings, real people.</p>
+        <table style="margin-top:22px">
+          <tr><th>Do</th><th>Don’t</th></tr>
+          <tr><td>Product clear in frame, can <i>and</i> bottle where possible</td><td>Hidden or tiny product</td></tr>
+          <tr><td>Vertical 9:16, HD or higher, well lit, in focus</td><td>Dark, grainy, horizontal-only</td></tr>
+          <tr><td>Authentic voice and personality, no stiff scripting</td><td>Polished ad-read</td></tr>
+          <tr><td>Relatable moments: couch, braai leftovers, work-from-bed, recovery walk</td><td>Glamourising heavy drinking</td></tr>
+          <tr><td>Blue / yellow colour pops via props, wardrobe, backgrounds</td><td>Heavy filters that shift brand colours</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Video specs (client brief)</h3>
+        <table>
+          <tr><td><b>Short-form</b></td><td>5–15 seconds</td></tr>
+          <tr><td><b>Medium-form</b></td><td>15–30 seconds</td></tr>
+          <tr><td><b>Influencer deliverable</b></td><td>1 Reel / TikTok, 30–45 s, vertical 9:16</td></tr>
+          <tr><td><b>Approval</b></td><td>Never post before Babalas approval; content goes live from the official page first, with a collab invite</td></tr>
+        </table>
+        <p class="small" style="margin-top:14px">Overlay type: Futura (or Jost) for headlines, Montserrat for subtitles. Use the single-colour yellow or white logo as a watermark, bottom-centre, inside the safe zone.</p>
+      </div>
+    </div>
+    <div class="fnote" style="margin-top:28px"><b>Gap:</b> photoshoot folders in the Drive (Black Coffee, Mieliepop 2025, Feb Shoot, New Years Party, Bronson) hold full-resolution photography of 6–11 MB per image that couldn’t be pulled through the Drive connector. Select hero frames and drop them into <code>brand/assets/photography/</code> to complete the mood board.</div>
+  </div>
+</section>
+
+<!-- ============ 09 PRODUCTS ============ -->
+<section class="on-sky">
+  <div class="wrap">
+    <div class="eyebrow">09 · Product range</div>
+    <h2>Two formats, one family.</h2>
+    <div class="grid g3" style="margin-top:34px;align-items:stretch">
+      <div class="prod on-blue">
+        <div class="pic"><img src="assets/packshot-can-300ml.png" alt="Babalas Rescue+ Energy 300 ml can"></div>
+        <h3>Energy can</h3>
+        <ul><li>300 ml · lightly carbonated</li><li>100 mg caffeine</li><li>Yellow body, blue cliff &amp; climber</li><li>Pink “ENERGY” label</li></ul>
+      </div>
+      <div class="prod on-yellow">
+        <div class="pic"><img src="assets/packshot-sachet.png" alt="Babalas Rescue+ sachet" style="height:100%"></div>
+        <h3>Sachet</h3>
+        <ul><li>13,4 g · 1 serving · caffeine free</li><li>Dissolve in 200–300 ml cold water</li><li>Yellow body, blue cliff &amp; climber</li><li>Line: “bounce back from your hangover”</li></ul>
+      </div>
+      <div class="prod" style="background:#fff;box-shadow:var(--shadow-card)">
+        <div class="pic"><img src="assets/packshot-sachet-box-6s.png" alt="6-sachet box with sachets" style="height:auto;width:100%;align-self:flex-end"></div>
+        <h3>Sachet box (6s)</h3>
+        <ul><li>6 × 13,4 g sachets</li><li>Blue box, yellow cliff &amp; climber</li><li>Line: “we won’t leave you hangin’”</li></ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top:22px">A 200 ml liquid format and 4-pack / 24-case shippers also appear in the client’s trade presenters. Product packshots live in <code>brand/assets/</code> (full-size originals in <code>source-assets/</code>). Barcode and weights are intentionally not reproduced here.</p>
+  </div>
+</section>
+
+<!-- ============ 10 APPLICATIONS ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">10 · Applying it</div>
+    <h2>Starter layouts for social.</h2>
+    <p class="lead" style="margin-bottom:34px">Three quick proofs that the system holds together. They are not final campaign creative.</p>
+    <div class="apps">
+      <div>
+        <div class="frame story" style="font-size:16px">
+          <span class="tag lab">Story · 9:16</span>
+          <img class="ico" src="logo/babalas-icon-yellow.svg" style="height:86%;left:-30%;top:6%" alt="">
+          <div class="hd" style="right:8%;top:6%;font-size:2.4rem;text-align:right;color:#fff">morning<br>after?</div>
+          <img src="assets/packshot-can-300ml.png" style="position:absolute;width:62%;right:2%;bottom:12%;filter:drop-shadow(0 22px 18px rgba(11,42,64,.4));z-index:3" alt="">
+          <img src="logo/babalas-wordmark-yellow.svg" style="position:absolute;width:44%;left:8%;bottom:5%;z-index:3" alt="">
+        </div>
+      </div>
+      <div>
+        <div class="frame post">
+          <span class="tag lab">Feed post · 4:5</span>
+          <img src="assets/packshot-sachet-box-6s.png" style="position:absolute;width:96%;left:2%;bottom:-13%;z-index:2;filter:drop-shadow(0 22px 18px rgba(11,42,64,.35))" alt="">
+          <div class="hd" style="left:8%;top:9%;font-size:2.35rem;color:var(--bb-blue)">we won’t<br>leave you<br>hangin’.</div>
+          <div class="plus-badge" style="position:absolute;right:8%;top:8%;z-index:3;width:64px;height:64px;font-size:2.4rem;background:var(--bb-blue);color:var(--bb-yellow)">+</div>
+        </div>
+      </div>
+      <div>
+        <div class="frame sq" style="background:var(--bb-yellow)">
+          <span class="tag lab">Reel cover · 1:1 crop</span>
+          <div style="position:absolute;inset:0;background:linear-gradient(115deg,var(--bb-blue) 0 41%,transparent 41%)"></div>
+          <div class="hd" style="left:8%;bottom:34%;font-size:2.7rem;color:var(--bb-night);z-index:3">zero<br>regrets.</div>
+          <div class="bb-tagline" style="position:absolute;left:8%;bottom:8%;z-index:3;font-size:.95rem;line-height:1.15;color:var(--bb-night)"><b>bounce back</b><br>from your <b>hangover</b></div>
+          <img src="assets/packshot-sachet.png" style="position:absolute;height:82%;right:9%;top:9%;z-index:3;filter:drop-shadow(0 18px 14px rgba(11,42,64,.4))" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 FILES ============ -->
+<section class="on-night">
+  <div class="wrap">
+    <div class="eyebrow">11 · Using this folder</div>
+    <h2 style="color:var(--bb-yellow)">Where everything lives.</h2>
+    <table style="color:#fff;margin-top:20px">
+      <tr><th style="color:var(--bb-yellow)">Path</th><th style="color:var(--bb-yellow)">What it is</th></tr>
+      <tr><td><code style="background:rgba(255,255,255,.14)">brand/brand-tokens.css</code></td><td>Colours, fonts, type scale, radius. Import into every web/HTML design.</td></tr>
+      <tr><td><code style="background:rgba(255,255,255,.14)">brand/logo/</code></td><td>SVG + PNG: 6 full-lockup colourways, 4 icon, 3 wordmark.</td></tr>
+      <tr><td><code style="background:rgba(255,255,255,.14)">brand/fonts/</code></td><td>Jost (Futura stand-in) and Montserrat, woff2.</td></tr>
+      <tr><td><code style="background:rgba(255,255,255,.14)">brand/assets/</code></td><td>Web-sized product packshots (transparent PNG).</td></tr>
+      <tr><td><code style="background:rgba(255,255,255,.14)">brand/moodboard.html</code></td><td>The brand mood board (PNG export in <code style="background:rgba(255,255,255,.14)">brand/exports/</code>).</td></tr>
+      <tr><td><code style="background:rgba(255,255,255,.14)">source-assets/</code></td><td>Original files pulled from Google Drive (logo PDF, colour sheet, briefs, packshots).</td></tr>
+      <tr><td><code style="background:rgba(255,255,255,.14)">scripts/build_logos.py</code></td><td>Regenerates logo colourways from the supplied PDF.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 12 OPEN QUESTIONS ============ -->
+<section class="on-yellow">
+  <div class="wrap">
+    <div class="eyebrow">12 · Open questions &amp; sources</div>
+    <h2>What we still need from the client.</h2>
+    <div class="grid g2" style="margin-top:30px">
+      <div class="card">
+        <h3>To confirm</h3>
+        <ol style="padding-left:20px;font-size:.95rem">
+          <li style="margin-bottom:8px">Print colour values (Pantone / CMYK) for blue, yellow, pink.</li>
+          <li style="margin-bottom:8px">Licence for Futura, or approval to use Jost for digital.</li>
+          <li style="margin-bottom:8px">Approval of the derived Night / Deep Blue text colours.</li>
+          <li style="margin-bottom:8px">Wider persona detail and cities, particularly the Black consumer focus.</li>
+          <li style="margin-bottom:8px">Approved responsible-drinking line for ad creative.</li>
+          <li>Whether the “Babalas Rescue+” and “Rescue Plus” / <code>@rescueplus</code> naming should be unified in copy.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Pulled from Google Drive</h3>
+        <ul style="padding-left:20px;font-size:.92rem">
+          <li style="margin-bottom:6px">Babalas Rescue › Assets › Logo Files › <i>Babalas logo.pdf</i></li>
+          <li style="margin-bottom:6px">Babalas + › Brand guide › <i>Cp all.png</i>, <i>Babalas Brand brief (1)/(2).pdf</i></li>
+          <li style="margin-bottom:6px">Babalas + › Products › Brand brief (Futura/Montserrat), Trade presenters (can, sachet, dual)</li>
+          <li style="margin-bottom:6px">Babalas Rescue › Packshot › can, sachet and box PNGs</li>
+          <li style="margin-bottom:6px">Babalas + › Documents › Influencer Content Brief; Planning › 1/3 Marketing Strategy (Jan 2026)</li>
+        </ul>
+        <p class="small" style="margin-top:12px">Invoices and banking details in the Drive were deliberately not copied.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap"><img src="logo/babalas-logo-yellow.svg" alt="babalas rescue+"><p class="small" style="max-width:40ch">Babalas Rescue+ brand identity v1.0. Please drink responsibly.</p></div></footer>
+</body>
+</html>

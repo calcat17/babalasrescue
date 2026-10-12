@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Babalas Rescue+ — brand tokens
+   Single source of truth for all digital design work. Import this first.
+   Sources: Babalas Brand brief (Futura/Montserrat edition), colour sheet
+   "Cp all.png", packshots. Derived values are marked (derived).
+   ========================================================================== */
+
+@font-face { font-family: "Jost"; font-weight: 500; src: url("fonts/jost-latin-500-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Jost"; font-weight: 700; src: url("fonts/jost-latin-700-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Jost"; font-weight: 800; src: url("fonts/jost-latin-800-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Montserrat"; font-weight: 300; src: url("fonts/montserrat-latin-300-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Montserrat"; font-weight: 400; src: url("fonts/montserrat-latin-400-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url("fonts/montserrat-latin-600-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url("fonts/montserrat-latin-700-normal.woff2") format("woff2"); font-display: swap; }
+
+:root {
+  /* ---- Core palette ---------------------------------------------------- */
+  --bb-blue:        #2CACEF;  /* Babalas Blue   — primary field colour (brief) */
+  --bb-yellow:      #FDEA12;  /* Rescue Yellow  — primary signature colour (brief) */
+  --bb-pink:        #F6009D;  /* Hangover Pink  — accent only: callouts, product-variant labels (colour sheet, can) */
+  --bb-white:       #FFFFFF;
+
+  /* ---- Derived support colours (not in client files; added for legibility) */
+  --bb-night:       #0B2A40;  /* (derived) text on light + on blue/yellow; 5.8:1 on blue, 11.9:1 on yellow */
+  --bb-deep-blue:   #0F5F8F;  /* (derived) blue text on white, 6.9:1 */
+  --bb-sky-tint:    #E6F6FD;  /* (derived) pale blue background tint */
+  --bb-sun-tint:    #FFFBD1;  /* (derived) pale yellow background tint */
+
+  /* ---- Semantic roles --------------------------------------------------- */
+  --color-bg-brand:     var(--bb-blue);
+  --color-bg-signal:    var(--bb-yellow);
+  --color-bg-neutral:   var(--bb-white);
+  --color-text-on-brand:   var(--bb-night);   /* body copy on blue/yellow */
+  --color-display-on-brand: var(--bb-yellow); /* big display type on blue only (2.05:1 — display sizes, never body) */
+  --color-text-on-light:   var(--bb-night);
+  --color-accent:       var(--bb-pink);
+
+  /* ---- Typography ------------------------------------------------------- */
+  /* Brief specifies Futura (headings) + Montserrat (body). Futura is a licensed
+     font; Jost is the open-licence, near-identical stand-in for web/digital. */
+  --font-display: "Futura", "Futura PT", "Futura LT Pro", "Jost", "Century Gothic", sans-serif;
+  --font-body:    "Montserrat", "Century Gothic", "Helvetica Neue", Arial, sans-serif;
+
+  --fw-display: 800;      /* Futura Heavy / Jost 800 */
+  --fw-display-light: 500;
+  --fw-body: 400;
+  --fw-body-strong: 700;
+
+  /* Type scale (1.25 ratio, fluid-friendly base 16px) */
+  --fs-xs: .75rem; --fs-sm: .875rem; --fs-base: 1rem; --fs-md: 1.25rem;
+  --fs-lg: 1.563rem; --fs-xl: 1.953rem; --fs-2xl: 2.441rem; --fs-3xl: 3.052rem; --fs-hero: clamp(3rem, 9vw, 7rem);
+  --lh-tight: 1.02; --lh-snug: 1.2; --lh-body: 1.55;
+  --ls-display: -.02em;
+
+  /* ---- Shape & spacing -------------------------------------------------- */
+  --radius-sm: 10px; --radius-md: 20px; --radius-lg: 32px; --radius-pill: 999px;
+  --space-1: .25rem; --space-2: .5rem; --space-3: 1rem; --space-4: 1.5rem;
+  --space-5: 2.5rem; --space-6: 4rem; --space-7: 6rem;
+  --shadow-pack: 0 28px 40px -18px rgba(11, 42, 64, .45);
+  --shadow-card: 0 12px 30px -12px rgba(11, 42, 64, .25);
+}
+
+/* Utility: the signature "bounce back from your hangover" tagline treatment.
+   Alternate bold / regular: **bounce back** from your **hangover** */
+.bb-tagline { font-family: var(--font-display); font-weight: 500; letter-spacing: .005em; text-transform: none; }
+.bb-tagline b { font-weight: 800; }
